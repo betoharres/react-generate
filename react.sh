@@ -1,9 +1,5 @@
 #!/bin/sh
 
-ROOT_PATH="./app"
-CONTAINER_FOLDER="containers"
-COMPONENTS_FOLDER="components"
-
 # Prevent running script without args
 if [ $# -eq 0 ]
 then
@@ -67,15 +63,11 @@ render_template() {
 
 if $CONTAINER
 then
-  FULL_PATH="$ROOT_PATH/$CONTAINER_FOLDER/$1"
-  mkdir -p $FULL_PATH
-  render_template ./Container.js >> $FULL_PATH/$1Container.js
+  render_template ./Container.js >> $1Container.js
 else
-  FULL_PATH="$ROOT_PATH/$COMPONENTS_FOLDER/$1"
-  mkdir -p $FULL_PATH
-  render_template ./Container.js >> $FULL_PATH/$1.js
+  render_template ./Stateless.js >> $1.js
 fi
 
 render_template ./Stories.js >> $FULL_PATH/$1.stories.js
 render_template ./Spec.js >> $FULL_PATH/$1.spec.js
-touch $FULL_PATH/$1.styles.js
+touch $1.styles.js
