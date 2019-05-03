@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { View } from 'react-native'
+import COMPONENT from 'COMPONENT'
 
-export default function (props) {
+export default function COMPONENT (props) {
   const [] = useState()
+
   useEffect(() => {})
 
   return (
-    <View>
-
-    </View>
+    null
   )
 }
 
-.propTypes = {
+COMPONENT.propTypes = {
 }

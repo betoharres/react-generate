@@ -60,7 +60,6 @@ render_template() {
   eval "echo \"$(cat $1)\""
 }
 
-
 if $CONTAINER
 then
   render_template ./Container.js >> $1Container.js
@@ -68,6 +67,6 @@ else
   render_template ./Stateless.js >> $1.js
 fi
 
-render_template ./Stories.js >> $FULL_PATH/$1.stories.js
-render_template ./Spec.js >> $FULL_PATH/$1.spec.js
+render_template ./Stories.js >> $1.stories.js
+render_template ./Spec.js >> $1.spec.js
 touch $1.styles.js

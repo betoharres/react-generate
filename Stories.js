@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import  from ''
+import FILENAME from './FILENAME'
 
-storiesOf('', module)
-  .add('', () => (
+storiesOf('<FILENAME />', module)
+  .add('FILENAME', () => (
   ));
