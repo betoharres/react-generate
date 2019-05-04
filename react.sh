@@ -69,4 +69,4 @@ fi
 
 render_template ./Stories.js >> $1.stories.js
 render_template ./Spec.js >> $1.spec.js
-touch $1.styles.js
+render_template ./Styles.js >> $1.css.js
