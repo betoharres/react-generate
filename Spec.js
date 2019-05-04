@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from 'react-native-testing-library'
-import from './'
+import FILENAME from './FILENAME'
 
-describe('', () => {
+describe('<FILENAME />', () => {
   it('renders correctly', () => {
     const wrapper = render()
     expect(true).toBe(true)

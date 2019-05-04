@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import COMPONENT from 'COMPONENT'
+import COMPONENT from './COMPONENT'
 
-export default function COMPONENT (props) {
+export default function FILENAME (props) {
   const [] = useState()
 
-  useEffect(() => {})
+  useEffect(() => {
+  }, [])
 
   return (
-    null
+    <COMPONENT />
   )
 }
 
-COMPONENT.propTypes = {
+FILENAME.propTypes = {
 }
