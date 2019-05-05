@@ -57,46 +57,24 @@ done
 # render a template configuration file
 # expand variables + preserve formatting
 render_template() {
-  eval "echo \"$(cat $1)\""
+  if [ -e Container.js ]
+  then
+    eval "echo \"$(cat $1)\""
+  else
+    touch $1.js
+  fi
 }
 
 mkdir -p $1
 cd $1
 if $CONTAINER
-  then
-    if [ -e Container.js ]
-    then
-      render_template ./Container.js >> $1.js
-    else
-      touch $1.js
-    fi
-  else
-    if [ -e Stateless.js ]
-    then
-      render_template ./Stateless.js >> $1.js
-    else
-      touch $1.js
-    fi
+then
+  render_template ./Container.js >> $1.js
+else
+  render_template ./Stateless.js >> $1.js
 fi
 
-if [ -e Stories.js ]
-then
-  render_template ./Stories.js >> $1.stories.js
-else
-  touch $1.stories.js
-fi
-
-if [ -e Spec.js ]
-then
-  render_template ./Spec.js >> $1.spec.js
-else
-  touch $1.spec.js
-fi
-
-if [ -e Styles.js ]
-then
-  render_template ./Styles.js >> $1.styles.js
-else
-  touch $1.css.js
-fi
-cd ..
+render_template ./Stories.js >> $1.stories.js
+render_template ./Spec.js >> $1.spec.js
+render_template ./Styles.js >> $1.styles.js
+cd $1
