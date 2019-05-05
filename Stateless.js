@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import { Container } from './FILENAME.css.js'
 
-function FILENAME (props) {
+function FILENAME ({}) {
   return (
     <Container>
       {null}
