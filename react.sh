@@ -61,12 +61,41 @@ render_template() {
 }
 
 if $CONTAINER
-then
-  render_template ./Container.js >> $1Container.js
-else
-  render_template ./Stateless.js >> $1.js
+  then
+    if [ -e Container.js ]
+    then
+      mkdir -p $1
+      render_template ./Container.js >> $1.js
+    else
+      touch $1.js
+    fi
+  else
+    if [ -e Stateless.js ]
+    then
+      mkdir -p $1
+      render_template ./Stateless.js >> $1.js
+    else
+      touch $1.js
+    fi
 fi
 
-render_template ./Stories.js >> $1.stories.js
-render_template ./Spec.js >> $1.spec.js
-render_template ./Styles.js >> $1.css.js
+if [ -e Stories.js ]
+then
+  render_template ./Stories.js >> $1.stories.js
+else
+  touch $1.stories.js
+fi
+
+if [ -e Spec.js ]
+then
+  render_template ./Spec.js >> $1.spec.js
+else
+  touch $1.spec.js
+fi
+
+if [ -e Styles.js ]
+then
+  render_template ./Styles.js >> $1.styles.js
+else
+  touch $1.css.js
+fi
