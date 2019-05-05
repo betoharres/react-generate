@@ -60,11 +60,12 @@ render_template() {
   eval "echo \"$(cat $1)\""
 }
 
+mkdir -p $1
+cd $1
 if $CONTAINER
   then
     if [ -e Container.js ]
     then
-      mkdir -p $1
       render_template ./Container.js >> $1.js
     else
       touch $1.js
@@ -72,7 +73,6 @@ if $CONTAINER
   else
     if [ -e Stateless.js ]
     then
-      mkdir -p $1
       render_template ./Stateless.js >> $1.js
     else
       touch $1.js
@@ -99,3 +99,4 @@ then
 else
   touch $1.css.js
 fi
+cd ..
